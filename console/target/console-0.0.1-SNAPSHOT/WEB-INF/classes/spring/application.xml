@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    
+    <bean id="DBConfig" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="order" value="1" />
+		<property name="ignoreUnresolvablePlaceholders" value="true" />
+		<property name="location">
+			<value>classpath:db.properties</value>
+		</property>
+	</bean>
+	
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName" value="${driverClassName}"></property>
+		<property name="url" value="${csbDatabase}"></property>
+		<property name="username" value="${csbUser}"></property>
+		<property name="password" value="${csbPasswd}"></property>
+
+		<property name="defaultAutoCommit" value="true"></property>
+		<property name="removeAbandoned" value="true"></property>
+		<property name="removeAbandonedTimeout" value="60"></property>
+		<property name="validationQuery" value="${validationQuery}"></property>
+		<property name="accessToUnderlyingConnectionAllowed" value="true" />
+	</bean>
+	
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<constructor-arg>
+			<ref bean="dataSource" />
+		</constructor-arg>
+	</bean>
+	
+	<bean id="baseRepository" class="cws.console.repository.JdbcRepository">
+		<constructor-arg>
+			<ref bean="jdbcTemplate" />
+		</constructor-arg>
+	</bean>
+	
+	<bean id="baseBmo" class="cws.console.bmo.BaseBmoImpl"></bean>
+	<bean id="baseSmo" class="cws.console.smo.BaseSmoImpl"></bean>
+	
+
+</beans>

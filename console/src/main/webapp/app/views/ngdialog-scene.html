@@ -1,0 +1,47 @@
+<meta charset="utf-8"/>
+<br>
+<div class="panel panel-default">
+   <div class="form-inline">
+	   <div class="panel-body">
+	     <label for="sceneName">场景名称</label>
+         <div class="form-group">
+            <input id="sceneName" type="text"class="form-control" ng-model="searchValObj.searchVal"/>
+         </div>
+         <button type="button" class="btn btn-default" ng-click="getSceneList()">查询</button>
+       </div>
+   </div>
+</div>
+<div class="panel panel-default">
+   <div class="form-inline">	  
+	   <div class="panel-body">
+         <!-- START list group-->
+         <scrollable height="230" class="list-group">
+            
+            <!-- START list group item-->
+            <div class="list-group-item" ng-repeat="scene in scene.sceneList" ng-click="getChoseScene(scene)">
+               <div class="media-box" >
+                  <div class="radio c-radio pull-left">
+                     <label><input type="radio" name="a" value="option1" />
+                     <span class="fa fa-circle"></span></label>
+                  </div>
+                  <div class="media-box-body clearfix">
+                     <small class="pull-right">{{$index}}</small>
+                     <strong class="media-box-heading text-primary">
+                        <span class="circle circle-danger circle-lg text-left"></span>{{scene.name}} | {{scene.op_type}}</strong>
+                     <p class="mb-sm">
+                        <small>{{scene.desc}} | {{scene.sql_type}} | {{scene.sql}}</small>
+                     </p>
+                  </div>
+               </div>
+            </div>
+            <!-- END list group item-->
+         </scrollable>
+         <!-- END list group-->
+       </div>
+	   <div class="text-right panel-footer">
+	   	  <button type="button" ng-click="returnCurScene();closeThisDialog(0);" class="btn btn-success btn-large">确认</button>
+	   	  <button type="button" ng-click="chanelCurScene();closeThisDialog(0);" class="btn btn-info btn-large">取消</button>
+	   </div>
+   </div>
+</div>
+

@@ -1,0 +1,37 @@
+<h3>
+	Dashboard <small>{{ 'dashboard.WELCOME' | translate:{ appName: app.name } }} !</small>
+</h3>
+
+<div class="row">
+	<div>
+		<button type="button" class="mb-sm btn btn-green" ng-click="queryAllService()">查询数据</button>
+		<button type="button" class="mb-sm btn btn-primary" ng-click="goEditServicePage()">修改接口</button>
+		<button type="button" class="mb-sm btn btn-warning" ng-click="goServiceAddPage()">新增接口</button>
+		<button type="button" class="mb-sm btn btn-success" ng-click="goEditServiceInterfacePage()">查看权限</button>
+		<button type="button" class="mb-sm btn btn-info" ng-click="goAddServiceComponentPage()">添加平台</button>
+		<button type="button" class="mb-sm btn btn-danger" ng-click="goEditServiceAttrPage()">修改属性</button>
+		<button type="button" class="mb-sm btn btn-inverse" ng-click="doSerivceDeleteSave()">删除接口</button>
+		<button type="button" class="mb-sm btn btn-purple" ng-click="goServiceConfigPage()">基础配置</button>
+		<!-- <button type="button" class="mb-sm btn btn-pink" ng-click="testaa()">Pink</button> -->
+		<div dropdown="dropdown" class="btn-group">
+            <button dropdown-toggle="" class="mb-sm btn btn-pink">下载内容<b class="caret"></b>
+            </button>
+            <ul role="menu" class="dropdown-menu animated fadeIn">
+               <li><a href="#">下载csb</a>
+               </li>
+               <li><a href="#">下载ctg</a>
+               </li>
+               <li><a href="#">下载模板</a>
+               </li>              
+            </ul>
+         </div>
+		
+		<input  type="text"   ng-model="searchForm.searchVal" />
+	</div>
+	<div>
+		<div class="container-fluid">
+			<div id="uigrid-demo" ui-grid="gridOptionsComplex"  ui-grid-selection  ui-grid-pagination 
+			style="height: 500px;"  class="table-uigrid"></div>
+		</div>
+	</div>
+</div>

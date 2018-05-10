@@ -1,0 +1,51 @@
+<h2>接口信息修改</h2>
+<meta charset="utf-8"/>
+<div class="panel panel-default">
+   <div class="panel-body">
+      <form role="form" class="form-inline">
+      	 <div>
+	         <div class="form-group">
+	            <label for="secondCode">二级能力编码:</label>
+	            <input id="secondCode" type="text" class="form-control" ng-model="baseServiceConfig.secondCode"/>
+	         </div>
+         	 <!-- <label for="thirdCode">三级能力编码:</label>
+	         <div class="input-group">
+	            <input type="text" id="thirdCode" class="form-control col-md-2" ng-model="baseServiceConfig.thirdCode"/>
+	            <span class="input-group-btn">
+	               <button type="button" class="btn btn-default" ng-click="findServiceThirdCode()">获得</button>
+	            </span>
+	            <span class="input-group-btn">
+	               <button type="button" class="btn btn-default" ng-click="checkServiceThirdCode()">验证</button>
+	            </span>
+	         </div> -->
+	         <div class="form-group">
+	            <label for="contractVersion">公用协议版本:</label>
+	            <input id="contractVersion" type="text" class="form-control" ng-model="baseServiceConfig.contractVersion"/>
+	         </div>
+         </div>
+	     <div> 
+	         <div class="form-group">
+	            <label for="dfFromCompCode">默认接入平台:</label>
+	            <input id="dfFromCompCode" type="text" class="form-control" ng-model="baseServiceConfig.dfFromCompCode"/>
+	         </div>
+	         <div class="form-group">
+	            <label for="dfToCompCode">默认落地平台:</label>
+	            <input id="dfToCompCode" type="text" class="form-control" ng-model="baseServiceConfig.dfToCompCode"/>
+	         </div>
+         </div> 
+		 <!-- <div>
+			<label for="url">url:</label>
+			<div class="form-group" style="width:100%;">
+		      <select class="form-control" style="width:100%;" ng-model="baseServiceConfig.dfUrl" 
+		              ng-init="baseServiceConfig.dfUrl = baseServiceConfig.urls[0]" ng-options="x for x in baseServiceConfig.urls">
+		      </select>
+			</div>
+		</div> -->
+         
+      </form>
+   </div>
+</div>
+
+<div class="text-center">
+   <button type="button" ng-click="closeThisDialog(0)" class="btn btn-info btn-large">关闭</button>
+</div>

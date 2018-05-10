@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:mvc="http://www.springframework.org/schema/mvc"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/aop  
+           http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">                    
+
+    <!-- scan the package and the sub package -->
+    <context:component-scan base-package="cws.console"/>
+
+    <!-- if you use annotation you must configure following setting -->
+    <mvc:annotation-driven />
+	
+	<!-- default servlet handler -->
+	<mvc:default-servlet-handler />  
+	
+	<aop:aspectj-autoproxy proxy-target-class="true"/>
+	
+	<mvc:interceptors>
+        <mvc:interceptor>
+            <!-- 拦截所有URL中包含/user/的请求 -->
+            <mvc:mapping path="/crm/doExecurte"/>
+            <bean class="cws.console.auth.AuthInterceptor"></bean>
+        </mvc:interceptor>
+    </mvc:interceptors>
+	
+	<!-- view Resolver -->
+    <!-- <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+      <property name="prefix" value="/statics/"/>
+      <property name="suffix" value=".html"/>
+      <property name="contentType" value="text/html;charset=UTF-8"></property>
+    </bean>  -->
+   
+   
+    
+</beans>

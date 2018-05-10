@@ -1,0 +1,27 @@
+<h2>接口信息修改</h2>
+<meta charset="utf-8"/>
+<div class="panel panel-default">
+   <div class="panel-body">
+      <form role="form" class="form-inline">
+      	 <div>
+	         
+         	 <label for="thirdCode">平台编码:</label>
+	         <div class="input-group">
+	            <input type="text" id="thirdCode" class="form-control col-md-2" ng-model="serviceNewComponent.componentId"/>
+	            <span class="input-group-btn">
+	               <button type="button" class="btn btn-default" ng-click="findServiceComponentIdAndCheck()">获得并验证</button>
+	            </span>	           
+	         </div>
+	         <div class="form-group">
+	            <label for="secondCode">平台名称:</label>
+	            <input id="secondCode" type="text" class="form-control" ng-model="serviceNewComponent.componentName"/>
+	         </div>
+         </div>
+      </form>
+   </div>
+</div>
+
+<div class="text-center">
+   <button type="button" ng-click="doServiceComponentAddSave()" class="btn btn-success btn-large">保存</button>
+   <button type="button" ng-click="closeThisDialog(0)" class="btn btn-info btn-large">关闭</button>
+</div>

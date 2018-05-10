@@ -1,0 +1,46 @@
+<h2>接口信息修改</h2>
+<meta charset="utf-8"/>
+<div class="panel panel-default">
+   <div class="panel-body">
+      <form role="form" class="form-inline">
+      	 <div>
+      	     <div class="form-group">
+	            <label for="secondCode">接口编码:</label>
+	            <input id="secondCode" type="text" class="form-control" ng-model="newService.serviceId"/>
+	         </div>
+	          <div class="form-group">
+	            <label for="secondCode">接口名称:</label>
+	            <input id="secondCode" type="text" class="form-control" ng-model="newService.serviceName"/>
+	         </div>
+	     <div>
+	         <!-- <div class="form-group">
+	            <label for="secondCode">二级编码:</label>
+	            <input id="secondCode" type="text" class="form-control" ng-model="newService.serviceTwoCode"/>
+	         </div>   -->  
+	         <div class="form-group">
+	            <label for="contractVersion">请求参数:</label>
+	            <input id="contractVersion" type="text" class="form-control" ng-model="newService.serviceReq"/>
+	         </div>
+	         <div class="form-group">
+	            <label for="contractVersion">超时时间:</label>
+	            <input id="contractVersion" type="text" class="form-control" ng-model="newService.serviceTmo"/>
+	         </div>
+         </div> 
+		 <div>
+			<label for="url">url:</label>
+			<div class="form-group" style="width:100%;">
+		      <select class="form-control" style="width:100%;" ng-model="newService.serviceUrl" 
+		              ng-init="newService.serviceUrl = baseServiceConfig.urls[0]" 
+		              ng-options="x for x in baseServiceConfig.urls">
+		      </select>
+			</div>
+		</div>
+         
+      </form>
+   </div>
+</div>
+
+<div class="text-center">
+<button type="button" ng-click="doServiceAddSave()" class="btn btn-success btn-large">保存</button>
+   <button type="button" ng-click="closeThisDialog(0)" class="btn btn-info btn-large">关闭</button>
+</div>

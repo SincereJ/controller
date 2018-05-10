@@ -1,0 +1,48 @@
+<h2>接口信息修改</h2>
+<meta charset="utf-8"/>
+<ul class="">
+   <li class="" style="list-style-type:none;">
+   		<div class="form-group m0">
+		   <label class="col-sm-4 control-label">ServiceId:</label>
+		   <div class="col-sm-8">
+		      <p class="form-control-static"><a href="#">{{ selectedRow.SERVICEID || &apos;empty&apos;}}</a>
+		      </p>
+		   </div>
+		</div>
+   </li>
+   <li class="" style="list-style-type:none;">
+   		<div class="form-group m0">
+		   <label class="col-sm-4 control-label">ServiceEnName:</label>
+		   <div class="col-sm-8">
+		      <p class="form-control-static"><a href="#">{{ selectedRow.SERVICEENNAME || &apos;empty&apos;}}</a>
+		      </p>
+		   </div>
+		</div>
+   </li>
+   <li class="" style="list-style-type:none;">
+   		<div class="form-group m0">
+		   <label class="col-sm-4 control-label">ServiceCnName:</label>
+		   <div class="col-sm-8">
+		      <p class="form-control-static"><a href="#">{{ selectedRow.SERVICECNNAME || &apos;empty&apos;}}</a>
+		      </p>
+		   </div>
+		</div>
+   </li>
+   <li class="" style="list-style-type:none;">------------------------------------------</li>
+   
+   <li class="" style="list-style-type:none;" ng-repeat="attr in selectedRowAttr.seletedRowAttrValues">
+   		<div class="form-group m0">
+		   <label class="col-sm-4 control-label">{{attr.ENDPOINT_ATTR_VALUE_ID}}</label>
+		   <div class="col-sm-8">
+		      <p class="form-control-static"><a href="#" editable-search="attr.ATTR_VALUE">{{ attr.ATTR_VALUE || &apos;empty&apos;}}</a></p>
+		   </div>
+		</div>
+   </li>
+   
+</ul>
+
+
+<div class="text-center">
+   <button type="button" ng-click="doServiceAttrValueEditSave()" class="btn btn-success btn-large">保存</button>
+   <button type="button" ng-click="closeThisDialog(0)" class="btn btn-info btn-large">关闭</button>
+</div>

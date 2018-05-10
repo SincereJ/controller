@@ -1,0 +1,54 @@
+<h3>
+   <!-- START Language list-->
+   <div class="pull-right">
+      <div dropdown="" is-open="language.listIsOpen" class="btn-group">
+         <button type="button" dropdown-toggle="" class="btn btn-default">{{language.selected}}
+            <span class="caret"></span>
+         </button>
+         <ul role="menu" class="dropdown-menu dropdown-menu-right animated fadeInUpShort">
+            <li ng-repeat="(localeId, langName) in language.available"><a ng-click="language.set(localeId, $event)" href="#">{{langName}}</a>
+            </li>
+         </ul>
+      </div>
+   </div>
+   <!-- END Language list    -->
+   Dashboard
+   <small>{{ 'dashboard.WELCOME' | translate:{ appName: app.name } }} !</small>
+</h3>
+
+<div class="panel panel-default">
+   <div class="panel-body">
+      <div class="form-inline">
+	      <button type="button" class="btn btn-default" ng-click="goSceneSelectedPage()">选择场景</button>
+	      <button type="button" class="btn btn-default pull-right">显示当前工号和ip地址ַ</button>
+	      <div class="form-group">
+	         <label for="selectedScene" class="sr-only">以选择的场景名</label>
+	         <input id="selectedScene" ng-readonly="true" type="text" placeholder="以选择的场景名" class="form-control" ng-model="scene.disPlayName" />
+	      </div>
+      </div>
+      
+   </div>
+   <div class="panel-body">
+       <div class="form-group">
+          <div class="row">
+             <div class="col-md-2" ng-repeat="p in scene.pNumList ">
+                <input type="text" placeholder="入参{{$index}}" class="form-control" ng-model="p.value"/>
+             </div>
+          </div>
+       </div>
+   </div>
+   <div class="panel-body">
+   	  <div class="form-inline">
+	      <button type="button" class="btn btn-default" ng-click="aa()">预执行</button>
+	      <button type="button" class="btn btn-default" ng-click="doExecurte()">正式提交</button>
+	      <button type="button" class="btn btn-default pull-right">重置</button>	      
+      </div>
+   </div>
+</div>
+<div class="panel panel-default" ng-include="getHtmlByType()">
+   
+</div>
+
+
+
+

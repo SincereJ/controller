@@ -1,0 +1,47 @@
+<meta charset="utf-8" />
+
+<h2>接口信息修改</h2>
+<p>&nbsp;{{ selectedRow.SERVICEID || &apos;empty&apos;}}&nbsp;
+	&nbsp;{{ selectedRow.SERVICEENNAME || &apos;empty&apos;}}&nbsp;
+	&nbsp;{{ selectedRow.SERVICECNNAME || &apos;empty&apos;}}&nbsp;</p>
+
+<div class="row">
+	<div class="col-lg-6 pre-scrollable">
+		<div class="panel panel-transparent">
+			<div>
+				<div class="list-group mb0">
+					<span class="list-group-item bt0"> <span class="pull-right"><input type="text" ng-model="currentInterface.compFilter"></input></span> 
+					  <em class="fa fa-fw fa-calendar mr"></em>
+					</span> 
+					<a class="list-group-item" ng-repeat="comp in interfaceForm.compments | filter:currentInterface.compFilter" ng-dblclick="choseComp(comp)"> 
+					  <span class="label label-purple pull-right">{{comp.COMPONENT_ID}}</span> 
+					  <em class="fa fa-fw fa-comment mr"></em>{{comp.NAME}}
+					</a> 					
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- <div class="col-lg-2">
+		<button type="button" class="btn btn-success btn-sm">添加</button>
+	    <button type="button" class="btn btn-info btn-sm">移除</button>
+	</div> -->
+	<div class="col-lg-6 pre-scrollable">
+		<div class="panel panel-transparent">
+			<div>
+				<div class="list-group mb0">
+					<span class="list-group-item bt0"> <span class="pull-right"><input type="text" ng-model="currentInterface.interFilter"/></span> 
+					  <em class="fa fa-fw fa-calendar mr"></em>
+					</span> 
+					<a class="list-group-item" ng-repeat="inter in interfaceForm.interfaces | filter:currentInterface.interFilter" ng-dblclick="removeInterface(inter)"> 
+					  <span class="label label-purple">{{inter.CODE}}</span> 
+					  <em class="fa fa-fw fa-comment mr pull-left"></em><br>{{inter.NAME}}
+					</a> 					
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="text-center">
+	<button type="button" ng-click="closeThisDialog(0)" class="btn btn-info btn-large">关闭</button>
+</div>
